@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "+YDVywgEKxxIb2VhUkzWIbbUKD4YtFTQUu5ZXGvYIBC8wSZi+rkJdZVS91AXVJZ3YN84uTxfUmoWLLKFqrUSIA==",
+  "success": false,
+  "projectFilePath": "C:\\NovaPoshtaRepo\\NovaPoshta\\NovaPoshta.UnitTest\\NovaPoshta.UnitTest.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "xunit.runner.visualstudio"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "Microsoft.NET.Test.Sdk"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "xunit"
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "libraryId": "coverlet.collector"
+    }
+  ]
+}
