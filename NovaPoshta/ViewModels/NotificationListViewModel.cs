@@ -19,18 +19,27 @@ namespace NovaPoshta.ViewModels
         public NotificationListViewModel()
         {
             _repository=new NotificationRepository();
-            GetCurrentUserNotifications();
+            GetCurrentUserNotifications().Wait();
         }
-        private async void GetCurrentUserNotifications()
+        private Task GetCurrentUserNotifications()
         {
-            if (AuthenticationService.CurrentUser != null)
+            return Task.Run(async () =>
             {
-                IQueryable<Notification> query = (await _repository
-                    .GetAllAsync())
-                    .Where(x => x.EmployeeId == AuthenticationService.CurrentUser.Id);
+                if (AuthenticationService.CurrentUser != null)
+                {
+                    IQueryable<Notification> query = (await _repository
+                        .GetAllAsync())
+                        .Where(x => x.EmployeeId == AuthenticationService.CurrentUser.Id);
+                    
+                    Notifications = new ObservableCollection<Notification>(
+                        query
+                        .ToArray()
+                        .Where(x=>DateTime.Now<x.DueTime)
+                        .Take(4));
+                }
 
-                Notifications = new ObservableCollection<Notification>(query);
-            }
+            });
+         
         }
     }
 }

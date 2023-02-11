@@ -169,16 +169,17 @@
         </Style>
         <Style x:Key="Row" TargetType="DataGridRow">
             <Setter Property="Background" Value="WhiteSmoke"></Setter>
-            <Setter Property="Margin" Value="0,10,0,0"></Setter>
+            <Setter Property="Margin" Value="0,20,0,0"></Setter>
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="MinHeight" Value="100"></Setter>
+           
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#FF392E"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                 </Trigger>
             </Style.Triggers>
-
+          
         </Style>
         <Style x:Key="ColumnHeader" TargetType="DataGridColumnHeader">
             <Setter Property="BorderThickness" Value="0,0,0,2"></Setter>

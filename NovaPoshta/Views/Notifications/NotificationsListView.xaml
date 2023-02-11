@@ -24,26 +24,44 @@
                         <TextBlock Style="{StaticResource Paragraph}" Margin="5" Text="{Binding LoggedUser}"></TextBlock>
                     </StackPanel>
                 </DockPanel>
-
-                <ListView
+            
+                    <ListView
                     Margin="0,10,0,0"
                     ItemsSource="{Binding Notifications}"
-                  BorderBrush="Red"
-                  BorderThickness="0,0,0,2"
-                    SelectionMode="Extended">
+                    BorderBrush="Red"
+                    BorderThickness="0,2,0,0">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Focusable" Value="false"/>
+                                <Setter Property="Padding" Value="20"></Setter>
+                                <Setter Property="Background" Value="WhiteSmoke"></Setter>
+                                <Setter Property="Margin" Value="0,0,0,10"></Setter>
+                                <Setter Property="IsSelected" Value="False"></Setter>
+                                <Setter Property="FontFamily" Value="Commissioner"></Setter>
 
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <DockPanel Background="LightGray">
-                                <Image Source="/NovaPoshta;component/Resources/icons/history.png" Width="40"></Image>
-                                <StackPanel>
-                                   
-                                </StackPanel>
-                            </DockPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                 
-                </ListView>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="/NovaPoshta;component/Resources/icons/history.png" Width="60" Grid.Column="0"></Image>
+                                    <StackPanel Orientation="Vertical" Grid.Column="1" Margin="15,10,0,0">
+                                        <TextBlock FontWeight="Bold" Text="{Binding Header}" FontSize="15" Margin="0,0,0,5"></TextBlock>
+                                        <TextBlock Text="{Binding Description}" FontSize="15"></TextBlock>
+                                    </StackPanel>
+
+                                </Grid>
+
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                    </ListView>
+              
             </StackPanel>
 
           

@@ -78,25 +78,41 @@
             RowStyle="{StaticResource Row}"
             ItemsSource="{Binding Employees}"
             SelectedItem="{Binding SelectedEmployee}"
-            CellStyle="{StaticResource Cell}">
+            CellStyle="{StaticResource Cell}"
+            >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ПІБ"
                                     Binding="{Binding FullName}"
-                                
-                                    />
+                                   Width="3*"
+                                    >
+
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Дата народження"
-                                     Width="2.5*"
+                                     Width="4*"
                                     Binding="{Binding Path=DateOfBirth, StringFormat=dd.MM.yyyy}"
                                    
                                     >
+                   
                 </DataGridTextColumn>
                 <DataGridTextColumn Header="Номер телефону"
-                                     Width="2*"
+                                     Width="4*"
                                     Binding="{Binding PhoneNumber}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
                 <DataGridTextColumn
                     Header="Поштомат"
-                     Width="2*"
+                     Width="3*"
                     Binding="{Binding Poshtomat.Number}">
                 </DataGridTextColumn>
             </DataGrid.Columns>

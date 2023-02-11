@@ -14,22 +14,24 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Border Style="{StaticResource WhiteBorder}" Grid.Column="1" Grid.Row="1">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Style="{StaticResource Header}" TextWrapping="Wrap" VerticalAlignment="Center"
-                       Grid.Row="1" Grid.Column="1">
-                Невірний логін або пароль
-                </TextBlock>
-                <Button Style="{StaticResource DarkRedButton}" Width="140" Height="40" Margin="0,40,0,0"
-                        Click="Button_Click">
-                    <TextBlock Style="{StaticResource ButtonLabel}">Повернутися</TextBlock>
-                </Button>
-            </StackPanel>
+          
+           
+           
         
            
         </Border>
+        <TextBlock Style="{StaticResource Header}" TextWrapping="Wrap" VerticalAlignment="Center"
+                      Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
+                Невірний логін або пароль
+        </TextBlock>
+        <Button Style="{StaticResource DarkRedButton}" Width="140" Height="40" Margin="0,0,0,20"
+                        Click="Button_Click" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                Grid.Column="1" Grid.Row="1">
+            <TextBlock Style="{StaticResource ButtonLabel}">Повернутися</TextBlock>
+        </Button>
     </Grid>
 </UserControl>

@@ -69,9 +69,10 @@ namespace NovaPoshta.ViewModels
             {
                 Switcher.Switch(new AddEmployeeView());
             });
-            RemoveEmployeeCommand = new RelayCommand((obj) =>
+            RemoveEmployeeCommand = new RelayCommand(async (obj) =>
             {
                 _employeesRepository.Delete(SelectedEmployee);
+                await _employeesRepository.SaveChangesAsync();
                 Employees.Remove(SelectedEmployee);
 
             }, (obj) => SelectedEmployee != null);

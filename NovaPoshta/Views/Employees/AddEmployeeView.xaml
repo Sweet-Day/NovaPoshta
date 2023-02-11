@@ -53,7 +53,7 @@
                 <StackPanel Margin="0,5,0,0">
                     <TextBlock Text="Дата народження" Style="{StaticResource TextBoxLabel}"></TextBlock>
                     <Border Style="{StaticResource TextBoxBorder}">
-                        <TextBox Style="{StaticResource TextBoxDefaultStyle}" Text="{Binding Path=NewEmployee.DateOfBirth, StringFormat=dd.MM.yyyy}"/>
+                        <TextBox Style="{StaticResource TextBoxDefaultStyle}" Text="{Binding Path=DateStr}"/>
                     </Border>
                 </StackPanel>
                 <StackPanel Margin="0,5,0,0">

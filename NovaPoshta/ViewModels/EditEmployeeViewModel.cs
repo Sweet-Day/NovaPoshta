@@ -33,18 +33,9 @@ namespace NovaPoshta.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        Poshtomat selectedPoshtomat;
-        public Poshtomat SelectedPoshtomat 
-        {
-            get => selectedPoshtomat;
-
-
-            set
-            {
-                selectedPoshtomat = value;
-                NotifyPropertyChanged();
-            }
-        }
+     
+        public int SelectedPoshtomatIndex { get; set; } = 0;
+        public string DateStr { get; set; }
         Employee currentEmployee;
         public Employee CurrentEmployee 
         { 
@@ -52,9 +43,16 @@ namespace NovaPoshta.ViewModels
 
             set
             {
-                UploadPoshtomats();
                 currentEmployee = value;
-                SelectedPoshtomat = currentEmployee.Poshtomat;
+                foreach (var item in Poshtomats) 
+                {
+                    if (item.Id != currentEmployee.PoshtomatId)
+                    {
+                        SelectedPoshtomatIndex += 1;
+                    }
+                    else break;
+                }
+                DateStr = currentEmployee.DateOfBirth.ToString("dd.MM.yyyy");
                 NotifyPropertyChanged();
             } 
         
@@ -67,15 +65,29 @@ namespace NovaPoshta.ViewModels
             UploadPoshtomats();
             SaveEmployeeCommand = new RelayCommand(async (obj) =>
             {
+                CurrentEmployee.DateOfBirth = DateTime.Parse(DateStr);
+                CurrentEmployee.PoshtomatId = Poshtomats[SelectedPoshtomatIndex].Id;
                 employeeRepository.Update(CurrentEmployee);
                 await employeeRepository.SaveChangesAsync();
                 Switcher.Switch(new HomeView());
                 HomeSwitcher.Switch(new EmployeesListView());
-            });
+            },IsExecute);
         }
         private void UploadPoshtomats()
         {
             Poshtomats = new ObservableCollection<Poshtomat>(poshtomatRepository.GetAll());
+        }
+        private bool IsExecute(object obj)
+        {
+            if (SelectedPoshtomatIndex != -1)
+            {
+                DateTime res;
+                if (DateTime.TryParse(DateStr, out res))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

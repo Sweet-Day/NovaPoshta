@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\NovaPoshtaRepo\\NovaPoshta\\NovaPoshta.BusinessLogic\\NovaPoshta.BusinessLogic.csproj": {
+                "projectPath": "C:\\NovaPoshtaRepo\\NovaPoshta\\NovaPoshta.BusinessLogic\\NovaPoshta.BusinessLogic.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -39,6 +43,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,6 +70,21 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\NovaPoshtaRepo\\NovaPoshta\\NovaPoshta.BusinessLogic\\NovaPoshta.BusinessLogic.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\NovaPoshtaRepo\\NovaPoshta\\NovaPoshta.BusinessLogic\\NovaPoshta.BusinessLogic.csproj",
+        "projectName": "NovaPoshta.BusinessLogic",
+        "projectPath": "C:\\NovaPoshtaRepo\\NovaPoshta\\NovaPoshta.BusinessLogic\\NovaPoshta.BusinessLogic.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }
